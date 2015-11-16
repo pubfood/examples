@@ -1,0 +1,7 @@
+## folders
+/node_modules
+
+## other generated stuff
+.DS_Store
+.idea
+npm-debug.log

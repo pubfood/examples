@@ -1,24 +1,25 @@
 {
-  "name": "pubfood-simulator",
+  "name": "pubfood-examples",
   "version": "0.0.1",
-  "description": "Auction and bid provider pubfood request simulator.",
+  "description": "Auction and bid provider pubfood request examples",
   "main": "lib/server.js",
   "scripts": {
     "start": "node ./lib/server.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/pubfood/pubfood.git"
+    "url": "https://github.com/pubfood/examples.git"
   },
   "author": {
     "name": "pubfood and other contributors",
-    "url": "https://github.com/pubfood/pubfood/blob/master/AUTHORS.txt"
+    "url": "https://github.com/pubfood/examples/blob/master/AUTHORS.txt"
   },
   "license": "MIT",
-  "devDependencies": {
+  "dependencies": {
     "boom": "^3.0.0",
     "hapi": "^11.1.0",
     "inert": "^3.2.0",
+    "pubfood": "0.1.9",
     "querystring": "^0.2.0"
   }
 }
