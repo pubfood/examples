@@ -235,12 +235,20 @@
           });
 
           food.timeout(2000)
+
           var timeReference = +new Date();
-          food.observe(function(ev) {
-            console.log(ev);
-            // console.log(ev.type, 'delay in ms:', ev.ts - timeReference);
-          });
-          // google analytics
+
+          // Google Analytics
+          // Standard Website tracking with Universal Analytics
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+          ga('create', 'UA-69476533-2', 'auto');
+          ga('send', 'pageview');
+
+          // Have pubfood send bid and auction complete timing events
+          // @see https://developers.google.com/analytics/devguides/collection/analyticsjs/user-timings
           food.observe(function(ev) {
             var elapsed = ev.ts - timeReference;
             if (ev.type.match(/COMPLETE$/)) {
@@ -252,11 +260,13 @@
                 timingLabel: ev.data
               };
               console.log(data);
-              // TODO consider hitCallback poking a ANALYTICS_SENT event in pubfood
-              // ga('send', data);
+              // TODO consider hitCallback getting an ANALYTICS_SENT event in pubfood
+              ga('send', data);
             }
           });
+
           food.start(timeReference);
+
         </script>
         <h1>Welcome Publisher People</h1>
         <p>We're here to help.</p>
